@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+
+    <title>Catherine's project</title>
+</head>
+
+
+<body>
+<div class="container">
+
+
+    <header class="bg-primary p-2 text-dark bg-opacity-10">
+        <h1 class="text-center">Greek restaurant</h1>
+    </header>
+
+
+
+
+    <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+            <a style="color: #1a1e21" class="nav-link" href="#information">Information</a>
+        </li>
+        <li class="nav-item">
+            <a style="color: #1a1e21" class="nav-link" href="#bookatable">Book a table</a>
+        </li>
+
+        <li class="nav-item">
+            <a style="color: #1a1e21" class="nav-link" href="#fillreview">Fill review</a>
+        </li>
+    </ul>
+
+
+<section id="information" class="p-3">
+<h3>Information</h3>
+    <p class="fw-lighter">Information about meals. Just ask what interests you!</p>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-dark" id="gyros" type="button">Gyros</button>
+            <button class="btn btn-dark" id="moussaka" type="button">Moussaka</button>
+            <button class="btn btn-dark" id="chtapodi" type="button">Chtapodi</button>
+            <button class="btn btn-dark" id="burekakia" type="button">Burekakia</button>
+            <button class="btn btn-dark" id="flogeres" type="button">Flogeres</button>
+        </div>
+</section>
+
+
+<section id="bookatable" class="p-3">
+    <h3>Book a table</h3>
+        <p class="fw-lighter">Make a reservation now!</p>
+
+    <form>
+
+
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">First name</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Fill your first name please">
+        </div>
+
+
+        <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Fill your last name please">
+        </div>
+
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Fill your email address">
+            <div id="emailHelp" class="form-text">We will send you a reply here</div>
+        </div>
+
+
+        <div class="form-floating">
+            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                <option value="selected" selected>Please select a day</option>
+                <option value="Mon">Mon.</option>
+                <option value="Tues">Tues.</option>
+                <option value="Wed">Wed.</option>
+                <option value="Th">Th.</option>
+                <option value="Fri">Fri.</option>
+                <option value="Sat">Sat.</option>
+            </select>
+        </div>
+
+
+        <div class="col-auto">
+            <button type="button" class="btn btn-secondary" id="send">Send</button>
+
+        </div>
+
+            <div class="alert alert-success d-flex align-items-center visually-hidden" id="reservation" role="alert">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg>
+                <div>
+                    Thank you for your reservation! See you soon!
+                </div>
+
+
+        </div>
+
+            </div>
+
+    </form>
+</section>
+
+
+<section id="fillreview" class="p-3">
+
+        <h3>Fill review</h3>
+        <p class="fw-lighter">Your opinion is very important for us! Please tell us what your impressions of the visit bellow:</p>
+
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td colspan="2">Was the waitress attentive to you?</td>
+            <td><div class="btn-group-vertical" role="group" aria-label="Basic mixed styles example">
+                <button type="button" class="btn btn-success" data-question="1" data-result="yes">Yes</button>
+                <button type="button" class="btn btn-danger" data-question="1" data-result="no">No</button>
+            </div></td>
+        </tr>
+
+        <tr>
+            <th scope="row">2</th>
+            <td colspan="2">Were you satisfied with waitress's answers?</td>
+            <td><div class="btn-group-vertical" role="group" aria-label="Basic mixed styles example">
+                <button type="button" class="btn btn-success" data-question="2" data-result="yes">Yes</button>
+                <button type="button" class="btn btn-danger" data-question="2" data-result="no">No</button>
+            </div></td>
+        </tr>
+
+        <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Did the waitress offer you a wine?</td>
+            <td><div class="btn-group-vertical" role="group" aria-label="Basic mixed styles example">
+                <button type="button" class="btn btn-success" data-question="3" data-result="yes">Yes</button>
+                <button type="button" class="btn btn-danger" data-question="3" data-result="no">No</button>
+            </div></td>
+        </tr>
+
+        <tr>
+            <th scope="row">4</th>
+            <td colspan="2">Did the waitress recommend you a digestive when you finished the meal?</td>
+            <td><div class="btn-group-vertical" role="group" aria-label="Basic mixed styles example">
+                <button type="button" class="btn btn-success" data-question="4" data-result="yes">Yes</button>
+                <button type="button" class="btn btn-danger" data-question="4" data-result="no">No</button>
+            </div></td>
+        </tr>
+
+        <tr>
+            <th scope="row">5</th>
+            <td colspan="2">Did you feel comfortable with the restaurant's service?</td>
+            <td><div class="btn-group-vertical" role="group" aria-label="Basic mixed styles example">
+                <button type="button" class="btn btn-success" data-question="5" data-result="yes">Yes</button>
+                <button type="button" class="btn btn-danger" data-question="5" data-result="no">No</button>
+            </div></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

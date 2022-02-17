@@ -1,4 +1,3 @@
-select current_timestamp + '1 hour';
 
 CREATE TABLE genders
 (
@@ -6,6 +5,13 @@ CREATE TABLE genders
     name text NOT NULL
 );
 
+
+CREATE TABLE tables
+(
+    id serial PRIMARY KEY,
+    number_of_seats smallint NOT NULL,
+    CONSTRAINT tables_number_of_seats_range CHECK (number_of_seats BETWEEN 1 AND 16)
+);
 
 CREATE TABLE guests
 (
@@ -19,12 +25,6 @@ CREATE TABLE guests
     FOREIGN KEY (gender_id) REFERENCES genders(id) ON DELETE RESTRICT
 );
 
-CREATE TABLE tables
-(
-    id serial PRIMARY KEY,
-    number_of_seats smallint NOT NULL,
-    CONSTRAINT tables_number_of_seats_range CHECK (number_of_seats BETWEEN 1 AND 16)
-);
 
 CREATE TABLE bills
 (
@@ -42,7 +42,7 @@ CREATE TABLE vouchers
     created_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     duration interval NOT NULL,
     code text NOT NULL UNIQUE,
-    CONSTRAINT vouchers_duration_length_limit CHECK (duration <= '6 months'),
+    CONSTRAINT vouchers_duration_length_limit CHECK (duration >= '6 months'),
     CONSTRAINT vouchers_code_pattern CHECK (code ~ '^[a-z0-9]{6}$')
 );
 
@@ -56,10 +56,10 @@ CREATE TABLE reservations
     is_canceled bool NOT NULL DEFAULT FALSE,
     guest_id int NOT NULL,
     table_id int NULL,
-    voucher_id int NOT NULL,
+    voucher_id int,
     FOREIGN KEY (guest_id) REFERENCES guests(id) ON DELETE CASCADE,
     FOREIGN KEY (table_id) REFERENCES tables(id) ON DELETE SET NULL,
-    FOREIGN KEY (voucher_id) REFERENCES tables(id) ON DELETE RESTRICT,
+    FOREIGN KEY (voucher_id) REFERENCES vouchers(id) ON DELETE RESTRICT,
     CONSTRAINT reservations_number_of_guests_range CHECK (number_of_guests BETWEEN 1 AND 16),
     CONSTRAINT reservations_started_at_future CHECK (started_at > created_at AND started_at > created_at + '1 hour'),
     CONSTRAINT reservations_duration_stay CHECK (duration BETWEEN '30 minutes' AND '5 hours')
